@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MABCO Traders</title>
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Top Info Bar -->
+<div class="bg-[#0A192F] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800 text-center font-medium tracking-wide">
+    <span>Now Accepting New B2B Clients | Free Consultation Available</span>
+</div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Brand Identity -->
+<a href="index.html" class="flex items-center gap-4 group py-1">
+    <!-- Increased height from h-12 to h-16 (mobile) and h-22 (desktop) -->
+    <img src="MABCO.png" alt="MABCO Traders Logo" class="h-16 lg:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
+    <div class="border-l-2 border-slate-200 pl-4 flex flex-col justify-center">
+        <!-- Bumped text size up for a bolder corporate feel -->
+        <span class="block font-extrabold text-xl lg:text-2xl text-[#0A192F] tracking-wide uppercase dynamic-text">MABCO Traders</span>
+        <span class="block text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold mt-0.5">One Source. Endless Supply.</span>
+    </div>
+</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Home</a>
+                <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">About Us</a>
+                <a href="products.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Products</a>
+                <a href="services.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Services</a>
+                <a href="contact.html" class="text-sm font-semibold text-[#0A192F] border-b-2 border-[#0A192F] pb-1">Contact Us</a>
+                <a href="contact.html" class="bg-[#0A192F] text-white hover:bg-slate-800 text-sm font-semibold px-5 py-2 rounded transition-all">Request a Quote</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-800 hover:text-[#0A192F] p-2 focus:outline-none" aria-label="Toggle Menu">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Container -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 py-4 px-4 shadow-inner space-y-3">
+            <a href="index.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Home</a>
+            <a href="about.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">About Us</a>
+            <a href="products.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Products</a>
+            <a href="services.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Services</a>
+            <a href="contact.html" class="block text-base font-semibold text-[#0A192F] bg-slate-50 px-3 py-2 rounded">Contact Us</a>
+            <a href="contact.html" class="block text-center bg-[#0A192F] text-white font-semibold py-2.5 rounded hover:bg-slate-800 transition-colors">Request a Quote</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Introduction Header -->
+        <section class="bg-slate-100 py-16 px-4 border-b border-slate-200">
+            <div class="max-w-4xl mx-auto text-center space-y-4">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-[#0A192F] tracking-tight">Contact Our Commercial Team</h1>
+                <div class="h-1 w-16 bg-[#0A192F] mx-auto rounded"></div>
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                    Have a question about our products, pricing, or delivery options? Our team is ready to assist you with all your commercial procurement needs and wholesale inquiries. Fill out the form below, and a MABCO Traders representative will reach out to help optimize your supply chain.
+                </p>
+            </div>
+        </section>
+
+        <!-- Main Section: Form + Contact Info -->
+        <section class="py-16 px-4 bg-white">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact info panel -->
+                <div class="lg:col-span-5 space-y-8 bg-[#0A192F] text-white p-8 md:p-10 rounded-2xl shadow-md">
+                    <div class="space-y-2">
+                        <h2 class="text-2xl font-bold tracking-tight">MABCO Traders</h2>
+                        <p class="text-slate-400 text-sm">General Order Suppliers &amp; Distributors</p>
+                    </div>
+
+                    <div class="h-px bg-slate-800 w-full"></div>
+
+                    <div class="space-y-6">
+                        <!-- Physical Address -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Office Address</h4>
+                                <p class="text-sm text-slate-100 leading-relaxed">
+                                    Plot # 10/A, Near Al Miraj Masjid, Ahmad Park, Afzal Town, Shad Bagh, Lahore, Pakistan.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Call Now</h4>
+                                <p class="text-sm text-slate-100">+92 329 0866466</p>
+                                <p class="text-xs text-slate-400">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">E-Mail</h4>
+                                <p class="text-sm text-slate-100 hover:underline"><a href="mailto:mabctraders@gmail.com">mabctraders@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="h-px bg-slate-800 w-full"></div>
+                    
+                    <div class="p-4 bg-slate-900/60 rounded-lg border border-slate-800 text-xs text-slate-400 leading-relaxed">
+                        To expedite custom quotes, please list expected volumes or specifications in your message.
+                    </div>
+                </div>
+
+                <!-- Form Panel -->
+                <div class="lg:col-span-7 bg-slate-50 p-8 md:p-10 border border-slate-200 rounded-2xl">
+                    <form class="space-y-6" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you! Your inquiry has been submitted. Our sales team will get in touch with you shortly.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Full Name -->
+                            <div>
+                                <label for="fullname" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="fullname" name="fullname" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. Muhammad Ali">
+                            </div>
+                            <!-- Business Name -->
+                            <div>
+                                <label for="businessname" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Business Name <span class="text-slate-400 font-normal">(Optional)</span></label>
+                                <input type="text" id="businessname" name="businessname" class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. Al-Noor Supermarket">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Phone Number -->
+                            <div>
+                                <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Phone Number <span class="text-red-500">*</span></label>
+                                <input type="tel" id="phone" name="phone" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. +92 300 1234567">
+                            </div>
+                            <!-- Email Address -->
+                            <div>
+                                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="email" name="email" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. client@domain.com">
+                            </div>
+                        </div>
+
+                        <!-- Product Category Dropdown -->
+                        <div>
+                            <label for="category" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Product Category <span class="text-red-500">*</span></label>
+                            <select id="category" name="category" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900">
+                                <option value="">-- Select a Category --</option>
+                                <option value="household">Household &amp; Consumer Goods</option>
+                                <option value="electronics">Electronics Accessories</option>
+                                <option value="hardware">Hardware &amp; Industrial Supplies</option>
+                                <option value="fmcg">FMCG (Fast Moving Consumer Goods)</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Message / Inquiry Details -->
+                        <div>
+                            <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Message / Inquiry Details <span class="text-red-500">*</span></label>
+                            <textarea id="message" name="message" rows="5" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="Please specify detail specifications, item variants, or bulk quantities desired..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" class="w-full bg-[#0A192F] text-white hover:bg-slate-800 font-bold py-3 px-6 rounded transition-colors text-sm shadow-md">
+                                Submit Inquiry
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Form Note -->
+                    <div class="mt-6 flex items-start gap-3 bg-slate-100 p-4 border border-slate-200 rounded">
+                        <svg class="w-5 h-5 text-slate-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Please Note:</strong> We value your time. Our commercial sales team reviews all submissions promptly and will respond to your inquiry within 24 to 48 business hours.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-8 px-4 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+            <!-- Footer Blurb -->
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex flex-col justify-center">
+                    <!-- Clean typographic branding instead of an image -->
+                    <span class="block font-extrabold text-2xl tracking-wide text-white uppercase">MABCO Traders</span>
+                    <span class="block text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">One Source. Endless Supply.</span>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed pt-2">
+                    MABCO Traders is a premier general order supplier and wholesale distributor based in Lahore, Pakistan. Guided by our promise, "One Source. Endless Supply," we provide businesses and retailers with reliable, high-quality bulk procurement solutions across multiple industries.
+                </p>
+                <p class="text-xs text-slate-500 italic">
+                    Your premier B2B trading partner in Pakistan, built on trust, quality, and unbroken supply lines.
+                </p>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Navigation</h4>
+                <ul class="space-y-2.5 text-sm text-slate-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors block">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors block">About Us</a></li>
+                    <li><a href="products.html" class="hover:text-white transition-colors block">Products</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors block">Services</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors block">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Direct Contact</h4>
+                <div class="space-y-3 text-sm text-slate-400">
+                    <p class="flex items-start gap-2.5">
+                        <svg class="w-5 h-5 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>Plot # 10/A, Near Al Miraj Masjid, Ahmad Park, Afzal Town, Shad Bagh, Lahore, Pakistan.</span>
+                    </p>
+                    <p class="flex items-center gap-2.5">
+                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span>+92 329 0866466</span>
+                    </p>
+                    <p class="flex items-center gap-2.5">
+                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span>mabctraders@gmail.com</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="max-w-7xl mx-auto pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+            <p>© 2026 MABCO Traders. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Hamburger menu interactivity -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden', !isExpanded);
+            closeIcon.classList.toggle('hidden', isExpanded);
+        });
+    </script>
+</body>
+</html>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923290866466?text=Hi%20MABCO%20Traders,%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20wholesale%20supplies." 
+   target="_blank" 
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#128C7E] transition-all transform hover:scale-110 flex items-center justify-center animate-bounce"
+   aria-label="Chat on WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Catalog - MABCO Traders</title>
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Top Info Bar -->
+<div class="bg-[#0A192F] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800 text-center font-medium tracking-wide">
+    <span>Now Accepting New B2B Clients | Free Consultation Available</span>
+</div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+           <!-- Brand Identity -->
+<a href="index.html" class="flex items-center gap-4 group py-1">
+    <!-- Increased height from h-12 to h-16 (mobile) and h-22 (desktop) -->
+    <img src="MABCO.png" alt="MABCO Traders Logo" class="h-16 lg:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
+    <div class="border-l-2 border-slate-200 pl-4 flex flex-col justify-center">
+        <!-- Bumped text size up for a bolder corporate feel -->
+        <span class="block font-extrabold text-xl lg:text-2xl text-[#0A192F] tracking-wide uppercase dynamic-text">MABCO Traders</span>
+        <span class="block text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold mt-0.5">One Source. Endless Supply.</span>
+    </div>
+</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Home</a>
+                <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">About Us</a>
+                <a href="products.html" class="text-sm font-semibold text-[#0A192F] border-b-2 border-[#0A192F] pb-1">Products</a>
+                <a href="services.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Services</a>
+                <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Contact Us</a>
+                <a href="contact.html" class="bg-[#0A192F] text-white hover:bg-slate-800 text-sm font-semibold px-5 py-2 rounded transition-all">Request a Quote</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-800 hover:text-[#0A192F] p-2 focus:outline-none" aria-label="Toggle Menu">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Container -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 py-4 px-4 shadow-inner space-y-3">
+            <a href="index.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Home</a>
+            <a href="about.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">About Us</a>
+            <a href="products.html" class="block text-base font-semibold text-[#0A192F] bg-slate-50 px-3 py-2 rounded">Products</a>
+            <a href="services.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Services</a>
+            <a href="contact.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Contact Us</a>
+            <a href="contact.html" class="block text-center bg-[#0A192F] text-white font-semibold py-2.5 rounded hover:bg-slate-800 transition-colors">Request a Quote</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Page Introduction -->
+        <section class="bg-slate-100 py-16 px-4">
+            <div class="max-w-4xl mx-auto text-center space-y-4">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-[#0A192F] tracking-tight">Product Catalog</h1>
+                <div class="h-1 w-16 bg-[#0A192F] mx-auto rounded"></div>
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                    Welcome to the MABCO Traders product catalog, your ultimate destination for premium commercial and retail inventory. We carefully curate our selection to ensure your business accesses durable, high-demand items that drive profitability. Browse through our core categories below to find the perfect wholesale solutions for your business operations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Product Categories Detail Block -->
+        <section class="py-16 px-4 bg-white">
+            <div class="max-w-7xl mx-auto space-y-16">
+                
+               <!-- Household & Consumer Goods Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-slate-100 pb-16">
+    <!-- Image Side -->
+    <div class="lg:col-span-4">
+        <img src="household-goods.jpg" alt="Household & Consumer Goods" class="w-full h-80 md:h-[450px] object-cover rounded-xl shadow-md">
+    </div>
+    <!-- Content Side -->
+    <div class="lg:col-span-8 space-y-6">
+        <h2 class="text-3xl font-bold text-[#0A192F]">Household &amp; Consumer Goods</h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+            Our household and consumer goods category offers a wide selection of everyday essentials designed for modern homes and commercial spaces. This range is ideal for departmental stores, retail shopkeepers, and corporate offices looking to stock up on utility items. We prioritize durability, practical design, and competitive wholesale pricing to give your business an edge in the market.
+        </p>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">Sourced Items Include:</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700 text-sm">
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Kitchenware and cooking utensils
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Plastic storage containers and organizers
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Home cleaning tools (brooms, mops, wipers)
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Bathroom accessories and utilities
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Small home appliances and comfort goods
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                <!-- Electronics Accessories Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-slate-100 pb-16">
+    <!-- Image Side -->
+    <div class="lg:col-span-4">
+        <img src="electronics-accessories.jpg" alt="Electronics Accessories" class="w-full h-80 md:h-[450px] object-cover rounded-xl shadow-md">
+    </div>
+    <!-- Content Side -->
+    <div class="lg:col-span-8 space-y-6">
+        <h2 class="text-3xl font-bold text-[#0A192F]">Electronics Accessories</h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+            The demand for reliable tech accessories is higher than ever, and our catalog is built to satisfy both retail consumers and corporate workspaces. We source durable, safety-certified electronic accessories that complement modern smartphones, laptops, and office setups. This category is perfect for electronics retailers, mobile shops, and corporate IT procurement managers.
+        </p>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">Sourced Items Include:</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700 text-sm">
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Premium charging cables and wall adapters
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    High-capacity power banks and portable chargers
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Ergonomic computer mice and keyboards
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Earphones, headphones, and Bluetooth audio devices
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Mobile phone stands and protective cases
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+                <!-- Hardware & Industrial Supplies Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-slate-100 pb-16">
+    <!-- Image Side -->
+    <div class="lg:col-span-4">
+        <img src="hardware-supplies.jpg" alt="Hardware & Industrial Supplies" class="w-full h-80 md:h-[450px] object-cover rounded-xl shadow-md">
+    </div>
+    <!-- Content Side -->
+    <div class="lg:col-span-8 space-y-6">
+        <h2 class="text-3xl font-bold text-[#0A192F]">Hardware &amp; Industrial Supplies</h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+            MABCO Traders provides a robust line of hardware and maintenance tools built to withstand demanding commercial and industrial environments. This selection serves construction businesses, maintenance departments, local workshops, and specialized hardware retailers. From precision hand tools to heavy-duty fasteners, we ensure your teams have the equipment they need to work safely and efficiently.
+        </p>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">Sourced Items Include:</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700 text-sm">
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Professional hand tool sets (wrenches, screwdrivers, pliers)
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Power tool accessories (drill bits, cutting discs, grinding wheels)
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Industrial fasteners, nuts, bolts, and screws
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Safety gear and Personal Protective Equipment (PPE)
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Adhesives, sealants, and industrial tapes
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                <!-- FMCG (Fast Moving Consumer Goods) Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <!-- Image Side -->
+    <div class="lg:col-span-4">
+        <img src="fmcg-goods.jpg" alt="FMCG Goods" class="w-full h-80 md:h-[450px] object-cover rounded-xl shadow-md">
+    </div>
+    <!-- Content Side -->
+    <div class="lg:col-span-8 space-y-6">
+        <h2 class="text-3xl font-bold text-[#0A192F]">FMCG (Fast Moving Consumer Goods)</h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+            Keep your retail shelves turning over quickly with our high-demand Fast Moving Consumer Goods category. We supply a comprehensive selection of packaged foods, personal care products, and hygiene items from trusted brands. This inventory is optimized for grocery stores, supermarkets, and corporate pantries that require a steady, uncompromised supply of daily essentials.
+        </p>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">Sourced Items Include:</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700 text-sm">
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Packaged snacks, biscuits, and confectionery
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Teas, coffees, and powdered beverage mixes
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Soaps, body washes, and hand sanitizers
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Shampoos, conditioners, and hair care items
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#0A192F]"></span>
+                    Laundry detergents and fabric conditioners
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <!-- Custom Sourcing CTAs -->
+        <section class="py-16 px-4 bg-slate-100 border-t border-slate-200">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl p-8 border border-slate-200 shadow-sm text-center space-y-4">
+                <h3 class="text-xl md:text-2xl font-extrabold text-[#0A192F]">Can't find what you need?</h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                    Contact us for custom sourcing. Our extensive manufacturer network allows us to locate and deliver specialized products tailored specifically to your business requirements.
+                </p>
+                <div class="pt-4">
+                    <a href="contact.html" class="bg-[#0A192F] text-white hover:bg-slate-800 font-bold px-8 py-3 rounded transition-all inline-block">
+                        Submit Custom Sourcing Request
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-8 px-4 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+            <!-- Footer Blurb -->
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex flex-col justify-center">
+                    <!-- Clean typographic branding instead of an image -->
+                    <span class="block font-extrabold text-2xl tracking-wide text-white uppercase">MABCO Traders</span>
+                    <span class="block text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">One Source. Endless Supply.</span>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed pt-2">
+                    MABCO Traders is a premier general order supplier and wholesale distributor based in Lahore, Pakistan. Guided by our promise, "One Source. Endless Supply," we provide businesses and retailers with reliable, high-quality bulk procurement solutions across multiple industries.
+                </p>
+                <p class="text-xs text-slate-500 italic">
+                    Your premier B2B trading partner in Pakistan, built on trust, quality, and unbroken supply lines.
+                </p>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Navigation</h4>
+                <ul class="space-y-2.5 text-sm text-slate-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors block">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors block">About Us</a></li>
+                    <li><a href="products.html" class="hover:text-white transition-colors block">Products</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors block">Services</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors block">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Direct Contact</h4>
+                <div class="space-y-3 text-sm text-slate-400">
+                    <p class="flex items-start gap-2.5">
+                        <svg class="w-5 h-5 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>Plot # 10/A, Near Al Miraj Masjid, Ahmad Park, Afzal Town, Shad Bagh, Lahore, Pakistan.</span>
+                    </p>
+                    <p class="flex items-center gap-2.5">
+                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span>+92 329 0866466</span>
+                    </p>
+                    <p class="flex items-center gap-2.5">
+                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span>mabctraders@gmail.com</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="max-w-7xl mx-auto pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+            <p>© 2026 MABCO Traders. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Hamburger menu interactivity -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden', !isExpanded);
+            closeIcon.classList.toggle('hidden', isExpanded);
+        });
+    </script>
+</body>
+</html>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923290866466?text=Hi%20MABCO%20Traders,%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20wholesale%20supplies." 
+   target="_blank" 
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#128C7E] transition-all transform hover:scale-110 flex items-center justify-center animate-bounce"
+   aria-label="Chat on WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
