@@ -4,41 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MABCO Traders - Bulk Supplies Across Pakistan</title>
+    
     <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- MABCO Master Animation Suite -->
+    <style>
+        /* 1. HERO LOAD STAGGERED ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(36px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-animate {
+            opacity: 0;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-animate-right {
+            opacity: 0;
+            animation: fadeInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Stagger Delays (100ms - 150ms increments) */
+        .delay-1 { animation-delay: 100ms; }
+        .delay-2 { animation-delay: 220ms; }
+        .delay-3 { animation-delay: 340ms; }
+        .delay-4 { animation-delay: 460ms; }
+        .delay-5 { animation-delay: 580ms; }
+
+        /* 2. SCROLL REVEAL (INTERSECTION OBSERVER) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger Delays for Grid Cards */
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+        .reveal-delay-4 { transition-delay: 400ms; }
+
+        /* 3. CARD & BUTTON HOVER EFFECTS */
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.025) !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .btn-hover {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease !important;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px) scale(1.03) !important;
+        }
+        .btn-hover:active {
+            transform: scale(0.98) !important;
+        }
+
+        /* 4. DYNAMIC STICKY HEADER SCROLL STATE */
+        header {
+            transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        header.header-scrolled {
+            padding-top: 0.35rem !important;
+            padding-bottom: 0.35rem !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08) !important;
+        }
+    </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased flex flex-col min-h-screen">
 
     <!-- Top Info Bar -->
-<div class="bg-[#0A192F] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800 text-center font-medium tracking-wide">
-    <span>Now Accepting New B2B Clients | Free Consultation Available</span>
-</div>
+    <div class="bg-[#000080] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800 text-center font-medium tracking-wide">
+        <span>Now Accepting New B2B Clients | Free Consultation Available</span>
+    </div>
 
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-           <!-- Brand Identity -->
-<a href="index.html" class="flex items-center gap-4 group py-1">
-    <!-- Increased height from h-12 to h-16 (mobile) and h-22 (desktop) -->
-    <img src="MABCO.png" alt="MABCO Traders Logo" class="h-16 lg:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
-    <div class="border-l-2 border-slate-200 pl-4 flex flex-col justify-center">
-        <!-- Bumped text size up for a bolder corporate feel -->
-        <span class="block font-extrabold text-xl lg:text-2xl text-[#0A192F] tracking-wide uppercase dynamic-text">MABCO Traders</span>
-        <span class="block text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold mt-0.5">One Source. Endless Supply.</span>
-    </div>
-</a>
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center transition-all duration-300">
+            <!-- Brand Identity -->
+            <a href="index.html" class="flex items-center gap-4 group py-1">
+                <img src="MABCO.png" alt="MABCO Traders Logo" class="h-16 lg:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
+                <div class="border-l-2 border-slate-200 pl-4 flex flex-col justify-center">
+                    <span class="block font-extrabold text-xl lg:text-2xl text-[#000080] tracking-wide uppercase dynamic-text">MABCO Traders</span>
+                    <span class="block text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold mt-0.5">One Source. Endless Supply.</span>
+                </div>
+            </a>
+            
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-8">
-                <a href="index.html" class="text-sm font-semibold text-[#0A192F] border-b-2 border-[#0A192F] pb-1">Home</a>
-                <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">About Us</a>
-                <a href="products.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Products</a>
-                <a href="services.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Services</a>
-                <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Contact Us</a>
-                <a href="contact.html" class="bg-[#0A192F] text-white hover:bg-slate-800 text-sm font-semibold px-5 py-2 rounded transition-all">Request a Quote</a>
+                <a href="index.html" class="text-sm font-semibold text-[#000080] border-b-2 border-[#000080] pb-1">Home</a>
+                <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">About Us</a>
+                <a href="products.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">Products</a>
+                <a href="services.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">Services</a>
+                <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">Contact Us</a>
+                <a href="contact.html" class="btn-hover bg-[#000080] text-white hover:bg-slate-800 text-sm font-semibold px-5 py-2 rounded shadow-sm">Request a Quote</a>
             </nav>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-slate-800 hover:text-[#0A192F] p-2 focus:outline-none" aria-label="Toggle Menu">
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-800 hover:text-[#000080] p-2 focus:outline-none" aria-label="Toggle Menu">
                 <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -50,112 +141,227 @@
 
         <!-- Mobile Navigation Container -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 py-4 px-4 shadow-inner space-y-3">
-            <a href="index.html" class="block text-base font-semibold text-[#0A192F] bg-slate-50 px-3 py-2 rounded">Home</a>
-            <a href="about.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">About Us</a>
-            <a href="products.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Products</a>
-            <a href="services.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Services</a>
-            <a href="contact.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Contact Us</a>
-            <a href="contact.html" class="block text-center bg-[#0A192F] text-white font-semibold py-2.5 rounded hover:bg-slate-800 transition-colors">Request a Quote</a>
+            <a href="index.html" class="block text-base font-semibold text-[#000080] bg-slate-50 px-3 py-2 rounded">Home</a>
+            <a href="about.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">About Us</a>
+            <a href="products.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">Products</a>
+            <a href="services.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">Services</a>
+            <a href="contact.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">Contact Us</a>
+            <a href="contact.html" class="block text-center bg-[#000080] text-white font-semibold py-2.5 rounded hover:bg-slate-800 transition-colors">Request a Quote</a>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow">
-        <!-- Hero Section -->
-        <section class="relative bg-slate-950 text-white py-24 md:py-32 px-4 overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" alt="B2B Warehouse and Logistics" class="w-full h-full object-cover opacity-30">
-                <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
+        
+        <!-- Hero Section (Staggered On-Load Animations) -->
+        <section class="relative bg-gradient-to-br from-[#000080] via-[#000050] to-[#020617] text-white py-24 md:py-32 px-4 overflow-hidden">
+            <!-- Professional Ambient Glow Effects -->
+            <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+                <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600 rounded-full blur-[128px]"></div>
+                <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-900 rounded-full blur-[128px]"></div>
             </div>
             
             <div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Main Text & CTAs (8 Columns) -->
                 <div class="lg:col-span-8 space-y-6">
-                    <span class="inline-block bg-[#0A192F] text-slate-200 border border-slate-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded">Lahore's Premier General Order Supplier</span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    <span class="hero-animate delay-1 inline-block bg-[#000080]/80 backdrop-blur-md text-slate-200 border border-blue-400/30 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded">
+                        Trusted General Order Supplier
+                    </span>
+                    <h1 class="hero-animate delay-2 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
                         Your Trusted Partner for Bulk Supplies Across Pakistan
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-300 font-medium max-w-3xl leading-relaxed">
+                    <p class="hero-animate delay-3 text-lg md:text-xl text-slate-300 font-medium max-w-3xl leading-relaxed">
                         Streamlining your procurement with quality, reliability, and unmatched wholesale value.
                     </p>
-                    <p class="text-slate-400 max-w-2xl leading-relaxed">
+                    <p class="hero-animate delay-4 text-slate-300 max-w-2xl leading-relaxed">
                         MABCO Traders is Lahore’s premier general order supplier, dedicated to fulfilling the diverse procurement needs of modern businesses. We bridge the gap between top-tier manufacturers and your enterprise by offering a seamless wholesale buying experience. From daily consumables to specialized hardware, we stock and source everything your business requires to thrive. Partner with us today and experience a simplified, cost-effective approach to commercial supply.
                     </p>
-                    <div class="pt-4 flex flex-wrap gap-4">
-                        <a href="contact.html" class="bg-white text-[#0A192F] hover:bg-slate-100 font-bold px-8 py-3.5 rounded shadow-lg hover:shadow-xl transition-all inline-block">
+                    <div class="hero-animate delay-5 pt-4 flex flex-wrap gap-4">
+                        <a href="contact.html" class="btn-hover bg-white text-[#000080] hover:bg-slate-100 font-bold px-8 py-3.5 rounded shadow-lg hover:shadow-xl inline-block">
                             Request a Quote
                         </a>
-                        <a href="products.html" class="bg-transparent border border-slate-400 text-white hover:bg-white/10 hover:border-white font-bold px-8 py-3.5 rounded transition-all inline-block">
+                        <a href="products.html" class="btn-hover bg-transparent border border-slate-400 text-white hover:bg-white/10 hover:border-white font-bold px-8 py-3.5 rounded inline-block">
                             View Catalog
                         </a>
                     </div>
                 </div>
+
+                <!-- Right Column: Floating Trust Metrics (Slides in from Right) -->
+                <div class="hero-animate-right delay-4 hidden lg:flex lg:col-span-4 flex-col gap-5 justify-center">
+                    <!-- Metric Card 1 -->
+                    <div class="card-hover bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-xl">
+                        <span class="block text-4xl font-black text-white tracking-tight">Quality-First Sourcing</span>
+                        <span class="text-xs text-slate-200 font-bold uppercase tracking-wider mt-1 block">Every Item, Every Time</span>
+                    </div>
+
+                    <!-- Metric Card 2 -->
+                    <div class="card-hover bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-xl">
+                        <span class="block text-4xl font-black text-white tracking-tight">Trusted Supplier Network</span>
+                        <span class="text-xs text-slate-200 font-bold uppercase tracking-wider mt-1 block">Verified Partners</span>
+                    </div>
+
+                    <!-- Metric Card 3 -->
+                    <div class="card-hover bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-xl">
+                        <span class="block text-4xl font-black text-white tracking-tight">Reliable Delivery</span>
+                        <span class="text-xs text-slate-200 font-bold uppercase tracking-wider mt-1 block">On Every Order</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- "Why Choose Us" Section -->
+        <!-- "Why Choose Us" Section (Scroll Reveal) -->
         <section class="py-20 px-4 bg-white">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                    <h2 class="text-3xl font-extrabold text-[#0A192F] tracking-tight">Why Choose Us</h2>
-                    <div class="h-1.5 w-20 bg-[#0A192F] mx-auto rounded"></div>
+                <div class="reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-3xl font-extrabold text-[#000080] tracking-tight">Why Choose Us</h2>
+                    <div class="h-1.5 w-20 bg-[#000080] mx-auto rounded"></div>
                     <p class="text-slate-600">We help stabilize business operations with structured procurement systems tailored to the Pakistani B2B market.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Wide Product Range -->
-                    <div class="bg-slate-50 p-8 border border-slate-100 rounded-lg shadow-xs hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center text-white mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    
+                    <!-- 1. Wide Product Range -->
+                    <div class="reveal reveal-delay-1 card-hover bg-slate-50 p-8 border border-slate-100 rounded-xl shadow-xs">
+                        <div class="w-12 h-12 rounded-lg bg-[#000080] flex items-center justify-center text-white mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3">Wide Product Range</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            We offer an extensive and diverse inventory across multiple commercial and consumer industries. This allows your business to consolidate its procurement, saving you the time and effort of dealing with multiple vendors.
+                            We offer an extensive and diverse inventory across multiple commercial and consumer industries. This allows your business to consolidate its procurement, saving you time and effort.
                         </p>
                     </div>
 
-                    <!-- Reliable Supply Chain -->
-                    <div class="bg-slate-50 p-8 border border-slate-100 rounded-lg shadow-xs hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center text-white mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+                    <!-- 2. Reliable Supply Chain -->
+                    <div class="reveal reveal-delay-2 card-hover bg-slate-50 p-8 border border-slate-100 rounded-xl shadow-xs">
+                        <div class="w-12 h-12 rounded-lg bg-[#000080] flex items-center justify-center text-white mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 011 1h2m4 0h1a1 1 0 001-1v-4a1 1 0 00-.293-.707l-2.414-2.414A1 1 0 0016.586 9H13m0 7h3m-3-7V5a1 1 0 011-1h2a1 1 0 011 1v4" />
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3">Reliable Supply Chain</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            We understand that stockouts and delays can disrupt your business operations and impact your bottom line. Our robust logistics network ensures that your bulk orders are delivered safely and on schedule, every single time.
+                            We understand that stockouts and delays can disrupt operations. Our robust logistics network ensures that your bulk orders are delivered safely and on schedule, every single time.
                         </p>
                     </div>
 
-                    <!-- Competitive Wholesale Pricing -->
-                    <div class="bg-slate-50 p-8 border border-slate-100 rounded-lg shadow-xs hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center text-white mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <!-- 3. Competitive Wholesale Pricing -->
+                    <div class="reveal reveal-delay-3 card-hover bg-slate-50 p-8 border border-slate-100 rounded-xl shadow-xs">
+                        <div class="w-12 h-12 rounded-lg bg-[#000080] flex items-center justify-center text-white mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Competitive Wholesale Pricing</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Competitive Pricing</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            By leveraging strong relationships with top manufacturers, we secure premium products at the lowest market rates. We pass these direct savings on to you, helping your business maximize its profit margins.
+                            By leveraging strong relationships with top manufacturers, we secure premium products at lowest market rates. We pass these savings on to you to maximize your margins.
                         </p>
                     </div>
 
-                    <!-- Trusted & Dedicated Service -->
-                    <div class="bg-slate-50 p-8 border border-slate-100 rounded-lg shadow-xs hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center text-white mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <!-- 4. Trusted & Dedicated Service -->
+                    <div class="reveal reveal-delay-4 card-hover bg-slate-50 p-8 border border-slate-100 rounded-xl shadow-xs">
+                        <div class="w-12 h-12 rounded-lg bg-[#000080] flex items-center justify-center text-white mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Trusted & Dedicated Service</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Trusted &amp; Service</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            Rooted in traditional Pakistani business values, we treat our clients as long-term growth partners. Our dedicated support team works closely with you to understand your specific inventory needs and provide tailored solutions.
+                            Rooted in traditional Pakistani business values, we treat clients as long-term partners. Our dedicated support team works closely to provide tailored solutions.
                         </p>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Product Categories Section -->
+        <!-- "How It Works" Process Section (Scroll Reveal) -->
+        <section class="py-20 px-4 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Header -->
+                <div class="reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#000080]">Streamlined Sourcing</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">How It Works</h2>
+                    <div class="h-1.5 w-20 bg-[#000080] mx-auto rounded"></div>
+                    <p class="text-slate-600 text-base md:text-lg font-medium">
+                        A simple, streamlined process from inquiry to delivery
+                    </p>
+                </div>
+
+                <!-- 4-Step Process Grid -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 pt-6">
+                    
+                    <!-- Desktop Horizontal Connecting Line -->
+                    <div class="hidden lg:block absolute top-12 left-[12%] right-[12%] h-1 bg-slate-300 z-0"></div>
+
+                    <!-- Step 1: Submit Inquiry -->
+                    <div class="reveal reveal-delay-1 relative z-10 flex flex-col items-center text-center group">
+                        <div class="card-hover w-full bg-white p-6 md:p-8 pt-10 border border-slate-200/80 rounded-xl shadow-xs relative mt-4 flex-grow flex flex-col">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#000080] text-white font-extrabold text-lg flex items-center justify-center shadow-md ring-4 ring-slate-50 group-hover:scale-110 transition-transform duration-300">
+                                1
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 mt-2">Submit Inquiry</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Reach out via our contact form, call, or WhatsApp with your product requirements and quantity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Get a Custom Quote -->
+                    <div class="reveal reveal-delay-2 relative z-10 flex flex-col items-center text-center group">
+                        <div class="card-hover w-full bg-white p-6 md:p-8 pt-10 border border-slate-200/80 rounded-xl shadow-xs relative mt-4 flex-grow flex flex-col">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#000080] text-white font-extrabold text-lg flex items-center justify-center shadow-md ring-4 ring-slate-50 group-hover:scale-110 transition-transform duration-300">
+                                2
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 mt-2">Get a Custom Quote</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Our team reviews your request and sends back a competitive wholesale quote within 24 hours.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Confirm Your Order -->
+                    <div class="reveal reveal-delay-3 relative z-10 flex flex-col items-center text-center group">
+                        <div class="card-hover w-full bg-white p-6 md:p-8 pt-10 border border-slate-200/80 rounded-xl shadow-xs relative mt-4 flex-grow flex flex-col">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#000080] text-white font-extrabold text-lg flex items-center justify-center shadow-md ring-4 ring-slate-50 group-hover:scale-110 transition-transform duration-300">
+                                3
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 mt-2">Confirm Your Order</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Once you approve the quote, we confirm order details, payment terms, and delivery timeline.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Fast, Reliable Delivery -->
+                    <div class="reveal reveal-delay-4 relative z-10 flex flex-col items-center text-center group">
+                        <div class="card-hover w-full bg-white p-6 md:p-8 pt-10 border border-slate-200/80 rounded-xl shadow-xs relative mt-4 flex-grow flex flex-col">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#000080] text-white font-extrabold text-lg flex items-center justify-center shadow-md ring-4 ring-slate-50 group-hover:scale-110 transition-transform duration-300">
+                                4
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 mt-2">Fast, Reliable Delivery</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                We process and dispatch your order through our logistics network, keeping you updated until it arrives.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Categories Section (Scroll Reveal) -->
         <section class="py-20 px-4 bg-slate-100">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                    <span class="text-xs font-bold uppercase tracking-widest text-[#0A192F]">Core Sourcing Capabilities</span>
+                <div class="reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#000080]">Core Sourcing Capabilities</span>
                     <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Product Categories</h2>
-                    <div class="h-1.5 w-20 bg-[#0A192F] mx-auto rounded"></div>
+                    <div class="h-1.5 w-20 bg-[#000080] mx-auto rounded"></div>
                     <p class="text-slate-600">
                         Discover our comprehensive range of high-quality products tailored to meet the demands of retail stores, corporate offices, and industrial operations.
                     </p>
@@ -163,19 +369,19 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Household & Consumer Goods -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
-                        <div class="sm:w-1/3 min-h-[200px] relative">
-                            <img src="household-goods.jpg" alt="Household & Consumer Goods" class="w-full h-full object-cover absolute inset-0">
+                    <div class="reveal reveal-delay-1 card-hover bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
+                        <div class="sm:w-1/3 min-h-[200px] relative overflow-hidden">
+                            <img src="household-goods.jpg" alt="Household & Consumer Goods" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                         </div>
                         <div class="p-8 sm:w-2/3 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <h3 class="text-xl font-extrabold text-[#0A192F]">Household &amp; Consumer Goods</h3>
+                                <h3 class="text-xl font-extrabold text-[#000080]">Household &amp; Consumer Goods</h3>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Equip your retail shelves or corporate facilities with essential daily-use items built for quality and convenience. Our selection features top-performing consumer products that guarantee end-user satisfaction.
                                 </p>
                             </div>
                             <div class="pt-6">
-                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#0A192F] inline-flex items-center gap-2 group">
+                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#000080] inline-flex items-center gap-2 group">
                                     Explore Items <span class="group-hover:translate-x-1 transition-transform">→</span>
                                 </a>
                             </div>
@@ -183,19 +389,19 @@
                     </div>
 
                     <!-- Electronics Accessories -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
-                        <div class="sm:w-1/3 min-h-[200px] relative">
-                            <img src="electronics-accessories.jpg" alt="Electronics Accessories" class="w-full h-full object-cover absolute inset-0">
+                    <div class="reveal reveal-delay-2 card-hover bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
+                        <div class="sm:w-1/3 min-h-[200px] relative overflow-hidden">
+                            <img src="electronics-accessories.jpg" alt="Electronics Accessories" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                         </div>
                         <div class="p-8 sm:w-2/3 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <h3 class="text-xl font-extrabold text-[#0A192F]">Electronics Accessories</h3>
+                                <h3 class="text-xl font-extrabold text-[#000080]">Electronics Accessories</h3>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Stay ahead in the digital age with our curated selection of durable and high-demand tech accessories. We supply everything from essential charging cables to modern workspace peripherals for retail and corporate use.
                                 </p>
                             </div>
                             <div class="pt-6">
-                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#0A192F] inline-flex items-center gap-2 group">
+                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#000080] inline-flex items-center gap-2 group">
                                     Explore Items <span class="group-hover:translate-x-1 transition-transform">→</span>
                                 </a>
                             </div>
@@ -203,19 +409,19 @@
                     </div>
 
                     <!-- Hardware & Industrial Supplies -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
-                        <div class="sm:w-1/3 min-h-[200px] relative">
-                            <img src="hardware-supplies.jpg" alt="Hardware & Industrial Supplies" class="w-full h-full object-cover absolute inset-0">
+                    <div class="reveal reveal-delay-3 card-hover bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
+                        <div class="sm:w-1/3 min-h-[200px] relative overflow-hidden">
+                            <img src="hardware-supplies.jpg" alt="Hardware & Industrial Supplies" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                         </div>
                         <div class="p-8 sm:w-2/3 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <h3 class="text-xl font-extrabold text-[#0A192F]">Hardware &amp; Industrial Supplies</h3>
+                                <h3 class="text-xl font-extrabold text-[#000080]">Hardware &amp; Industrial Supplies</h3>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Keep your operations running safely and efficiently with our dependable range of tools, fasteners, and maintenance supplies. Designed for durability, these products meet the rigorous standards of Pakistani workshops and commercial facilities.
                                 </p>
                             </div>
                             <div class="pt-6">
-                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#0A192F] inline-flex items-center gap-2 group">
+                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#000080] inline-flex items-center gap-2 group">
                                     Explore Items <span class="group-hover:translate-x-1 transition-transform">→</span>
                                 </a>
                             </div>
@@ -223,19 +429,19 @@
                     </div>
 
                     <!-- FMCG -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
-                        <div class="sm:w-1/3 min-h-[200px] relative">
-                            <img src="fmcg-goods.jpg" alt="Fast Moving Consumer Goods" class="w-full h-full object-cover absolute inset-0">
+                    <div class="reveal reveal-delay-4 card-hover bg-white rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row border border-slate-200">
+                        <div class="sm:w-1/3 min-h-[200px] relative overflow-hidden">
+                            <img src="fmcg-goods.jpg" alt="Fast Moving Consumer Goods" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                         </div>
                         <div class="p-8 sm:w-2/3 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <h3 class="text-xl font-extrabold text-[#0A192F]">FMCG (Fast Moving Consumer Goods)</h3>
+                                <h3 class="text-xl font-extrabold text-[#000080]">FMCG (Fast Moving Consumer Goods)</h3>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Stock up on high-turnover packaged goods, toiletries, and daily essentials that keep your customers coming back. We ensure consistent availability of top FMCG brands so your retail business never misses a sale.
                                 </p>
                             </div>
                             <div class="pt-6">
-                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#0A192F] inline-flex items-center gap-2 group">
+                                <a href="products.html" class="text-sm font-bold text-slate-900 hover:text-[#000080] inline-flex items-center gap-2 group">
                                     Explore Items <span class="group-hover:translate-x-1 transition-transform">→</span>
                                 </a>
                             </div>
@@ -245,23 +451,24 @@
             </div>
         </section>
 
-        <!-- Call to Action Section -->
-        <section class="py-20 px-4 bg-slate-900 text-white text-center relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80" alt="Bulk Logistics Network" class="w-full h-full object-cover">
-            </div>
-            <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+        <!-- Call to Action Section (Scroll Reveal) -->
+        <section class="py-20 px-4 bg-gradient-to-tr from-[#020617] via-[#000080] to-[#112240] text-white text-center relative overflow-hidden border-t border-slate-800">
+            <!-- Subtle Ambient Center Glow -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+            
+            <div class="reveal relative z-10 max-w-4xl mx-auto space-y-6">
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Ready to Streamline Your Business Procurement?</h2>
                 <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                     Get in touch with our commercial sales team today to discuss your bulk requirements and receive a competitive wholesale quote. Let MABCO Traders handle your supply chain so you can focus on growing your business.
                 </p>
                 <div class="pt-6">
-                    <a href="contact.html" class="bg-white text-[#0A192F] hover:bg-slate-100 font-bold px-10 py-4 rounded shadow-lg transition-transform hover:-translate-y-0.5 duration-200 inline-block">
+                    <a href="contact.html" class="btn-hover bg-white text-[#000080] hover:bg-slate-100 font-bold px-10 py-4 rounded shadow-lg inline-block">
                         Request a Quote
                     </a>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Global Footer -->
@@ -270,7 +477,6 @@
             <!-- Footer Blurb -->
             <div class="md:col-span-5 space-y-4">
                 <div class="flex flex-col justify-center">
-                    <!-- Clean typographic branding instead of an image -->
                     <span class="block font-extrabold text-2xl tracking-wide text-white uppercase">MABCO Traders</span>
                     <span class="block text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">One Source. Endless Supply.</span>
                 </div>
@@ -280,6 +486,24 @@
                 <p class="text-xs text-slate-500 italic">
                     Your premier B2B trading partner in Pakistan, built on trust, quality, and unbroken supply lines.
                 </p>
+                <!-- Social Media Links -->
+                <div class="flex items-center space-x-4 pt-5">
+                    <a href="https://www.facebook.com/mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="Facebook">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="TikTok">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.03 2.61-.01 3.91-.02.08 1.53.63 3.02 1.67 4.14 1.09 1.15 2.58 1.8 4.14 1.93v3.86c-1.8-.06-3.55-.7-4.94-1.84-.11-.09-.23-.19-.34-.29v6.99c.04 3.44-2.15 6.64-5.4 7.74-3.58 1.21-7.61-.43-9.15-3.87-1.54-3.44-.06-7.55 3.33-9.14 1.14-.54 2.4-.73 3.64-.54v3.93c-1.3-.39-2.73-.08-3.75.81-.98.86-1.44 2.21-1.2 3.49.25 1.3 1.25 2.37 2.53 2.7 1.56.4 3.25-.26 3.98-1.7.3-.6.41-1.28.4-1.96V0l.02.02z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="YouTube">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93 .502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
             </div>
 
             <!-- Navigation Links -->
@@ -296,18 +520,18 @@
 
             <!-- Contact/Location Details -->
             <div class="md:col-span-4 space-y-4">
-                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Direct Contact</h4>
+                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Our Office</h4>
                 <div class="space-y-3 text-sm text-slate-400">
                     <p class="flex items-start gap-2.5">
-                        <svg class="w-5 h-5 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <svg class="w-5 h-5 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         <span>Plot # 10/A, Near Al Miraj Masjid, Ahmad Park, Afzal Town, Shad Bagh, Lahore, Pakistan.</span>
                     </p>
                     <p class="flex items-center gap-2.5">
-                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         <span>+92 329 0866466</span>
                     </p>
                     <p class="flex items-center gap-2.5">
-                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         <span>mabcotraders@gmail.com</span>
                     </p>
                 </div>
@@ -320,27 +544,63 @@
         </div>
     </footer>
 
-    <!-- Hamburger menu interactivity -->
-    <script>
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburgerIcon = document.getElementById('hamburger-icon');
-        const closeIcon = document.getElementById('close-icon');
+    <!-- Floating WhatsApp Button (Properly Inside Body) -->
+    <a href="https://wa.me/923290866466?text=Hi%20MABCO%20Traders,%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20wholesale%20supplies." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#128C7E] transition-all transform hover:scale-110 flex items-center justify-center animate-bounce"
+       aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
 
-        menuBtn.addEventListener('click', () => {
-            const isExpanded = mobileMenu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden', !isExpanded);
-            closeIcon.classList.toggle('hidden', isExpanded);
+    <!-- Interactivity & Master Animation Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Hamburger Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = mobileMenu.classList.toggle('hidden');
+                    if (hamburgerIcon) hamburgerIcon.classList.toggle('hidden', !isExpanded);
+                    if (closeIcon) closeIcon.classList.toggle('hidden', isExpanded);
+                });
+            }
+
+            // 2. Intersection Observer for Scroll Triggered Reveals
+            const observerOptions = {
+                root: null,
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Animates once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // 3. Dynamic Sticky Header Transition
+            const header = document.querySelector('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
+                    }
+                }, { passive: true });
+            }
         });
     </script>
 </body>
 </html>
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/923290866466?text=Hi%20MABCO%20Traders,%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20wholesale%20supplies." 
-   target="_blank" 
-   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#128C7E] transition-all transform hover:scale-110 flex items-center justify-center animate-bounce"
-   aria-label="Chat on WhatsApp">
-    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-</a>
