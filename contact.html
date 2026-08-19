@@ -4,42 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - MABCO Traders</title>
+    
     <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- MABCO Master Animation Suite -->
+    <style>
+        /* 1. HERO LOAD STAGGERED ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animate {
+            opacity: 0;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 100ms; }
+        .delay-2 { animation-delay: 220ms; }
+        .delay-3 { animation-delay: 340ms; }
+
+        /* 2. SCROLL REVEAL (INTERSECTION OBSERVER) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger Delays for Grid Cards */
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+        .reveal-delay-4 { transition-delay: 400ms; }
+
+        /* 3. CARD & BUTTON HOVER EFFECTS */
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.015) !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .btn-hover {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease !important;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px) scale(1.03) !important;
+        }
+        .btn-hover:active {
+            transform: scale(0.98) !important;
+        }
+
+        /* 4. DYNAMIC STICKY HEADER SCROLL STATE */
+        header {
+            transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        header.header-scrolled {
+            padding-top: 0.35rem !important;
+            padding-bottom: 0.35rem !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08) !important;
+        }
+    </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased flex flex-col min-h-screen">
 
     <!-- Top Info Bar -->
-<div class="bg-[#0A192F] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800 text-center font-medium tracking-wide">
-    <span>Now Accepting New B2B Clients | Free Consultation Available</span>
-</div>
+    <div class="bg-[#000080] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800 text-center font-medium tracking-wide">
+        <span>Now Accepting New B2B Clients | Free Consultation Available</span>
+    </div>
 
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center transition-all duration-300">
             <!-- Brand Identity -->
-<a href="index.html" class="flex items-center gap-4 group py-1">
-    <!-- Increased height from h-12 to h-16 (mobile) and h-22 (desktop) -->
-    <img src="MABCO.png" alt="MABCO Traders Logo" class="h-16 lg:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
-    <div class="border-l-2 border-slate-200 pl-4 flex flex-col justify-center">
-        <!-- Bumped text size up for a bolder corporate feel -->
-        <span class="block font-extrabold text-xl lg:text-2xl text-[#0A192F] tracking-wide uppercase dynamic-text">MABCO Traders</span>
-        <span class="block text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold mt-0.5">One Source. Endless Supply.</span>
-    </div>
-</a>
+            <a href="index.html" class="flex items-center gap-4 group py-1">
+                <img src="MABCO.png" alt="MABCO Traders Logo" class="h-16 lg:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
+                <div class="border-l-2 border-slate-200 pl-4 flex flex-col justify-center">
+                    <span class="block font-extrabold text-xl lg:text-2xl text-[#000080] tracking-wide uppercase dynamic-text">MABCO Traders</span>
+                    <span class="block text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold mt-0.5">One Source. Endless Supply.</span>
+                </div>
+            </a>
 
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-8">
-                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Home</a>
-                <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">About Us</a>
-                <a href="products.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Products</a>
-                <a href="services.html" class="text-sm font-semibold text-slate-600 hover:text-[#0A192F] transition-colors pb-1">Services</a>
-                <a href="contact.html" class="text-sm font-semibold text-[#0A192F] border-b-2 border-[#0A192F] pb-1">Contact Us</a>
-                <a href="contact.html" class="bg-[#0A192F] text-white hover:bg-slate-800 text-sm font-semibold px-5 py-2 rounded transition-all">Request a Quote</a>
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">Home</a>
+                <a href="about.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">About Us</a>
+                <a href="products.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">Products</a>
+                <a href="services.html" class="text-sm font-semibold text-slate-600 hover:text-[#000080] transition-colors pb-1">Services</a>
+                <a href="contact.html" class="text-sm font-semibold text-[#000080] border-b-2 border-[#000080] pb-1">Contact Us</a>
+                <a href="contact.html" class="btn-hover bg-[#000080] text-white hover:bg-slate-800 text-sm font-semibold px-5 py-2 rounded shadow-sm">Request a Quote</a>
             </nav>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-slate-800 hover:text-[#0A192F] p-2 focus:outline-none" aria-label="Toggle Menu">
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-800 hover:text-[#000080] p-2 focus:outline-none" aria-label="Toggle Menu">
                 <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -51,40 +122,46 @@
 
         <!-- Mobile Navigation Container -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 py-4 px-4 shadow-inner space-y-3">
-            <a href="index.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Home</a>
-            <a href="about.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">About Us</a>
-            <a href="products.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Products</a>
-            <a href="services.html" class="block text-base font-semibold text-slate-600 hover:text-[#0A192F] hover:bg-slate-50 px-3 py-2 rounded">Services</a>
-            <a href="contact.html" class="block text-base font-semibold text-[#0A192F] bg-slate-50 px-3 py-2 rounded">Contact Us</a>
-            <a href="contact.html" class="block text-center bg-[#0A192F] text-white font-semibold py-2.5 rounded hover:bg-slate-800 transition-colors">Request a Quote</a>
+            <a href="index.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">Home</a>
+            <a href="about.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">About Us</a>
+            <a href="products.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">Products</a>
+            <a href="services.html" class="block text-base font-semibold text-slate-600 hover:text-[#000080] hover:bg-slate-50 px-3 py-2 rounded">Services</a>
+            <a href="contact.html" class="block text-base font-semibold text-[#000080] bg-slate-50 px-3 py-2 rounded">Contact Us</a>
+            <a href="contact.html" class="block text-center bg-[#000080] text-white font-semibold py-2.5 rounded hover:bg-slate-800 transition-colors">Request a Quote</a>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow">
-        <!-- Introduction Header -->
-        <section class="bg-slate-100 py-16 px-4 border-b border-slate-200">
-            <div class="max-w-4xl mx-auto text-center space-y-4">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-[#0A192F] tracking-tight">Contact Our Commercial Team</h1>
-                <div class="h-1 w-16 bg-[#0A192F] mx-auto rounded"></div>
-                <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+        
+        <!-- Introduction Header (Hero Load Animation) -->
+        <section class="relative bg-gradient-to-br from-[#000080] via-[#112240] to-[#020617] text-white py-20 px-4 overflow-hidden border-b border-slate-800">
+            <!-- Professional Ambient Glow Effects -->
+            <div class="absolute inset-0 z-0 pointer-events-none opacity-30">
+                <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600 rounded-full blur-[128px]"></div>
+                <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-900 rounded-full blur-[128px]"></div>
+            </div>
+
+            <div class="relative z-10 max-w-4xl mx-auto text-center space-y-3">
+                <h1 class="hero-animate delay-1 text-3xl md:text-5xl font-extrabold tracking-tight">Contact Our Commercial Team</h1>
+                <p class="hero-animate delay-2 text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
                     Have a question about our products, pricing, or delivery options? Our team is ready to assist you with all your commercial procurement needs and wholesale inquiries. Fill out the form below, and a MABCO Traders representative will reach out to help optimize your supply chain.
                 </p>
             </div>
         </section>
 
-        <!-- Main Section: Form + Contact Info -->
+        <!-- Main Section: Form + Contact Info (Scroll Reveals) -->
         <section class="py-16 px-4 bg-white">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
                 <!-- Contact info panel -->
-                <div class="lg:col-span-5 space-y-8 bg-[#0A192F] text-white p-8 md:p-10 rounded-2xl shadow-md">
+                <div class="reveal reveal-delay-1 card-hover lg:col-span-5 space-y-8 bg-[#000080] text-white p-8 md:p-10 rounded-2xl shadow-xl">
                     <div class="space-y-2">
                         <h2 class="text-2xl font-bold tracking-tight">MABCO Traders</h2>
-                        <p class="text-slate-400 text-sm">General Order Suppliers &amp; Distributors</p>
+                        <p class="text-slate-300 text-sm">General Order Suppliers &amp; Distributors</p>
                     </div>
 
-                    <div class="h-px bg-slate-800 w-full"></div>
+                    <div class="h-px bg-white/20 w-full"></div>
 
                     <div class="space-y-6">
                         <!-- Physical Address -->
@@ -93,7 +170,7 @@
                                 <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div class="space-y-1">
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Office Address</h4>
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-300">Office Address</h4>
                                 <p class="text-sm text-slate-100 leading-relaxed">
                                     Plot # 10/A, Near Al Miraj Masjid, Ahmad Park, Afzal Town, Shad Bagh, Lahore, Pakistan.
                                 </p>
@@ -106,9 +183,9 @@
                                 <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
                             <div class="space-y-1">
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Call Now</h4>
-                                <p class="text-sm text-slate-100">+92 329 0866466</p>
-                                <p class="text-xs text-slate-400">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-300">Call Now</h4>
+                                <p class="text-sm text-slate-100 font-semibold">+92 329 0866466</p>
+                                <p class="text-xs text-slate-300">Mon - Sat: 9:00 AM - 6:00 PM</p>
                             </div>
                         </div>
 
@@ -118,32 +195,32 @@
                                 <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <div class="space-y-1">
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">E-Mail</h4>
-                                <p class="text-sm text-slate-100 hover:underline"><a href="mailto:mabctraders@gmail.com">mabcotraders@gmail.com</a></p>
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-300">E-Mail</h4>
+                                <p class="text-sm text-slate-100 hover:underline"><a href="mailto:mabcotraders@gmail.com">mabcotraders@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="h-px bg-slate-800 w-full"></div>
+                    <div class="h-px bg-white/20 w-full"></div>
                     
-                    <div class="p-4 bg-slate-900/60 rounded-lg border border-slate-800 text-xs text-slate-400 leading-relaxed">
+                    <div class="p-4 bg-black/20 rounded-xl border border-white/10 text-xs text-slate-300 leading-relaxed">
                         To expedite custom quotes, please list expected volumes or specifications in your message.
                     </div>
                 </div>
 
                 <!-- Form Panel -->
-                <div class="lg:col-span-7 bg-slate-50 p-8 md:p-10 border border-slate-200 rounded-2xl">
+                <div class="reveal reveal-delay-2 card-hover lg:col-span-7 bg-slate-50 p-8 md:p-10 border border-slate-200/80 rounded-2xl shadow-xs">
                     <form class="space-y-6" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you! Your inquiry has been submitted. Our sales team will get in touch with you shortly.');">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Full Name -->
                             <div>
                                 <label for="fullname" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="fullname" name="fullname" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. Muhammad Ali">
+                                <input type="text" id="fullname" name="fullname" required class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#000080] focus:border-transparent text-slate-900 transition-all" placeholder="e.g. Muhammad Ali">
                             </div>
                             <!-- Business Name -->
                             <div>
                                 <label for="businessname" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Business Name <span class="text-slate-400 font-normal">(Optional)</span></label>
-                                <input type="text" id="businessname" name="businessname" class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. Al-Noor Supermarket">
+                                <input type="text" id="businessname" name="businessname" class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#000080] focus:border-transparent text-slate-900 transition-all" placeholder="e.g. Al-Noor Supermarket">
                             </div>
                         </div>
 
@@ -151,19 +228,19 @@
                             <!-- Phone Number -->
                             <div>
                                 <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Phone Number <span class="text-red-500">*</span></label>
-                                <input type="tel" id="phone" name="phone" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. +92 300 1234567">
+                                <input type="tel" id="phone" name="phone" required class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#000080] focus:border-transparent text-slate-900 transition-all" placeholder="e.g. +92 300 1234567">
                             </div>
                             <!-- Email Address -->
                             <div>
                                 <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address <span class="text-red-500">*</span></label>
-                                <input type="email" id="email" name="email" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="e.g. client@domain.com">
+                                <input type="email" id="email" name="email" required class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#000080] focus:border-transparent text-slate-900 transition-all" placeholder="e.g. client@domain.com">
                             </div>
                         </div>
 
                         <!-- Product Category Dropdown -->
                         <div>
                             <label for="category" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Product Category <span class="text-red-500">*</span></label>
-                            <select id="category" name="category" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900">
+                            <select id="category" name="category" required class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#000080] focus:border-transparent text-slate-900 transition-all">
                                 <option value="">-- Select a Category --</option>
                                 <option value="household">Household &amp; Consumer Goods</option>
                                 <option value="electronics">Electronics Accessories</option>
@@ -176,19 +253,19 @@
                         <!-- Message / Inquiry Details -->
                         <div>
                             <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Message / Inquiry Details <span class="text-red-500">*</span></label>
-                            <textarea id="message" name="message" rows="5" required class="w-full bg-white border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A192F] focus:border-transparent text-slate-900" placeholder="Please specify detail specifications, item variants, or bulk quantities desired..."></textarea>
+                            <textarea id="message" name="message" rows="5" required class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#000080] focus:border-transparent text-slate-900 transition-all" placeholder="Please specify detail specifications, item variants, or bulk quantities desired..."></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <div>
-                            <button type="submit" class="w-full bg-[#0A192F] text-white hover:bg-slate-800 font-bold py-3 px-6 rounded transition-colors text-sm shadow-md">
+                            <button type="submit" class="btn-hover w-full bg-[#000080] text-white hover:bg-slate-800 font-bold py-3.5 px-6 rounded-lg text-sm shadow-md">
                                 Submit Inquiry
                             </button>
                         </div>
                     </form>
 
                     <!-- Form Note -->
-                    <div class="mt-6 flex items-start gap-3 bg-slate-100 p-4 border border-slate-200 rounded">
+                    <div class="mt-6 flex items-start gap-3 bg-slate-100 p-4 border border-slate-200 rounded-lg">
                         <svg class="w-5 h-5 text-slate-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             <strong>Please Note:</strong> We value your time. Our commercial sales team reviews all submissions promptly and will respond to your inquiry within 24 to 48 business hours.
@@ -206,7 +283,6 @@
             <!-- Footer Blurb -->
             <div class="md:col-span-5 space-y-4">
                 <div class="flex flex-col justify-center">
-                    <!-- Clean typographic branding instead of an image -->
                     <span class="block font-extrabold text-2xl tracking-wide text-white uppercase">MABCO Traders</span>
                     <span class="block text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">One Source. Endless Supply.</span>
                 </div>
@@ -216,6 +292,24 @@
                 <p class="text-xs text-slate-500 italic">
                     Your premier B2B trading partner in Pakistan, built on trust, quality, and unbroken supply lines.
                 </p>
+                <!-- Social Media Links -->
+                <div class="flex items-center space-x-4 pt-5">
+                    <a href="https://www.facebook.com/mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="Facebook">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="TikTok">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.03 2.61-.01 3.91-.02.08 1.53.63 3.02 1.67 4.14 1.09 1.15 2.58 1.8 4.14 1.93v3.86c-1.8-.06-3.55-.7-4.94-1.84-.11-.09-.23-.19-.34-.29v6.99c.04 3.44-2.15 6.64-5.4 7.74-3.58 1.21-7.61-.43-9.15-3.87-1.54-3.44-.06-7.55 3.33-9.14 1.14-.54 2.4-.73 3.64-.54v3.93c-1.3-.39-2.73-.08-3.75.81-.98.86-1.44 2.21-1.2 3.49.25 1.3 1.25 2.37 2.53 2.7 1.56.4 3.25-.26 3.98-1.7.3-.6.41-1.28.4-1.96V0l.02.02z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="YouTube">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93 .502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/mabcotraders" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
             </div>
 
             <!-- Navigation Links -->
@@ -232,7 +326,7 @@
 
             <!-- Contact Details -->
             <div class="md:col-span-4 space-y-4">
-                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Direct Contact</h4>
+                <h4 class="text-sm font-extrabold uppercase tracking-widest text-white border-b border-slate-800 pb-2">Our Office</h4>
                 <div class="space-y-3 text-sm text-slate-400">
                     <p class="flex items-start gap-2.5">
                         <svg class="w-5 h-5 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -256,27 +350,63 @@
         </div>
     </footer>
 
-    <!-- Hamburger menu interactivity -->
-    <script>
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburgerIcon = document.getElementById('hamburger-icon');
-        const closeIcon = document.getElementById('close-icon');
+    <!-- Floating WhatsApp Button (Inside Body) -->
+    <a href="https://wa.me/923290866466?text=Hi%20MABCO%20Traders,%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20wholesale%20supplies." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#128C7E] transition-all transform hover:scale-110 flex items-center justify-center animate-bounce"
+       aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
 
-        menuBtn.addEventListener('click', () => {
-            const isExpanded = mobileMenu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden', !isExpanded);
-            closeIcon.classList.toggle('hidden', isExpanded);
+    <!-- Interactivity & Master Animation Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Hamburger Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = mobileMenu.classList.toggle('hidden');
+                    if (hamburgerIcon) hamburgerIcon.classList.toggle('hidden', !isExpanded);
+                    if (closeIcon) closeIcon.classList.toggle('hidden', isExpanded);
+                });
+            }
+
+            // 2. Intersection Observer for Scroll Triggered Reveals
+            const observerOptions = {
+                root: null,
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // 3. Dynamic Sticky Header Transition
+            const header = document.querySelector('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
+                    }
+                }, { passive: true });
+            }
         });
     </script>
 </body>
 </html>
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/923290866466?text=Hi%20MABCO%20Traders,%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20wholesale%20supplies." 
-   target="_blank" 
-   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#128C7E] transition-all transform hover:scale-110 flex items-center justify-center animate-bounce"
-   aria-label="Chat on WhatsApp">
-    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-</a>
